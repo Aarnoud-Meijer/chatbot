@@ -288,3 +288,4 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 /* JUST RUN IT */
 $app->run();
+echo "test";
