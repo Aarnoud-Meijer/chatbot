@@ -5,6 +5,7 @@
 $configs =  [
 	'settings' => ['displayErrorDetails' => true],
 ];
+
 $app = new Slim\App($configs);
 
 /* ROUTES */
@@ -12,11 +13,11 @@ $app->get('/', function ($request, $response) {
 	return $response->withStatus(200, 'Okido');
 });
 
-$app->post('/', function ($request, $response)
-{
+$app->post('/', function ($request, $response){
+
 	// get request body and line signature header
 	$body 	   = file_get_contents('php://input');
-$signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
+    $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 
 	// log body and signature
 	file_put_contents('php://stderr', 'Body: '.$body);
@@ -35,8 +36,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient($_ENV['CHANNEL_ACCESS_TOKEN']);
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => $_ENV['CHANNEL_SECRET']]);
 	$data = json_decode($body, true);
-	foreach ($data['events'] as $event)
-	{
+	foreach ($data['events'] as $event){
 		$userMessage = $event['message']['text'];
 
 		$thesender = $event['source']['userId'];
@@ -44,13 +44,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
       file_put_contents('php://stderr', " ----- ");
 
 
-	   if(strtolower($userMessage) == 'ok2')
-		{
-			/*
-			$res = file_get_contents("demo.json");
-			$res = utf8_encode($res);
-        	$res = json_decode($res);
-*/
+	   if(strtolower($userMessage) == 'ok2'){
 
 		// $data = new \LINE\LINEBot\MessageBuilder\FlexMessageBuilder("Allernatief", $res);
 		  
@@ -68,8 +62,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		}
 
 
-	   if(strtolower($userMessage) == 'wie')
-		{
+	   if(strtolower($userMessage) == 'wie'){
 			$message = $thesender;
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);
@@ -78,10 +71,7 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		}
 
 
-
-
-     if(strtolower($userMessage) == 'sticker')
-		{
+        if(strtolower($userMessage) == 'sticker'){
 	
             $mysticker = new \LINE\LINEBot\MessageBuilder\StickerMessageBuilder("11538", "51626501");
 			$result = $bot->replyMessage($event['replyToken'], $mysticker);
@@ -89,13 +79,9 @@ $signature = $_SERVER['HTTP_X_LINE_SIGNATURE'];
 		
 		}
 
-	   if(strtolower($userMessage) == 'emo')
-		{
+        if(strtolower($userMessage) == 'emo'){
 
-	    
-		$message = "Hallo "  . json_decode('"\ud83d\ude00"');
-
-			//$message = "Hallo " . $unicodeChar;
+            $message = "Hallo "  . json_decode('"\ud83d\ude00"');
 
             $textMessageBuilder = new \LINE\LINEBot\MessageBuilder\TextMessageBuilder($message);
 			$result = $bot->replyMessage($event['replyToken'], $textMessageBuilder);

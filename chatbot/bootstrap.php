@@ -4,8 +4,7 @@
 //	dependency:	> php 5.4, PDO, phpmailer
 //	framework:	see doc
 
-namespace mvc;
-use mvc\controler	as controler;
+namespace chatbot;
 
 define('APPLICATION_PATH', realpath('../'));
 define('DS', DIRECTORY_SEPARATOR);
@@ -16,6 +15,7 @@ if(!defined('WEBROOT_PATH')) die();
 
 error_reporting(E_ALL);
 
+/*
 // config
 // include('config.php');
 $setting = require(dirname(__FILE__).DS.'config'.DS.'setting.php');
@@ -29,6 +29,7 @@ if($_SERVER['SERVER_NAME'] != $setting['debug_url']){					// --- LIVE MODE --- /
 
 //var_dump($setting);
 // controller
+*/
 
 require_once("autoloader.class.php");						// autoloader
 
