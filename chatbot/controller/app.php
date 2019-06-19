@@ -8,7 +8,7 @@ $configs =  [
 	'settings' => ['displayErrorDetails' => true],
 ];
 
-$app = new Slim\App($configs);
+$app = new \Slim\App($configs);
 
 /* ROUTES */
 $app->get('/', function ($request, $response) {
