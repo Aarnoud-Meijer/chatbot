@@ -1,5 +1,7 @@
 <?php
 
+namespace chatbot\controller;
+
 
 // initiate app
 $configs =  [

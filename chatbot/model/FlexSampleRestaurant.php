@@ -1,7 +1,6 @@
 <?php
 
-require '../vendor/autoload.php';
-
+namespace chatbot\model;
 
 use LINE\LINEBot\TemplateActionBuilder\UriTemplateActionBuilder;
 use LINE\LINEBot\TemplateActionBuilder\Uri\AltUriBuilder;

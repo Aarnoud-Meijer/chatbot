@@ -15,6 +15,12 @@ if(!defined('WEBROOT_PATH')) die();
 
 error_reporting(E_ALL);
 
+require '../vendor/autoload.php';
+
+require 'model/FlexSampleRestaurant.php';
+
+$chatbot = new model\FlexSampleRestaurant(); // ?
+
 /*
 // config
 // include('config.php');
@@ -27,15 +33,7 @@ if($_SERVER['SERVER_NAME'] != $setting['debug_url']){					// --- LIVE MODE --- /
 //	ini_set('error_reporting', (version_compare(PHP_VERSION, '5.3.0', '<') ? E_ALL|E_STRICT : E_ALL));
 }
 
-//var_dump($setting);
-// controller
 */
 
-require_once("autoloader.class.php");						// autoloader
-
-new controler\index($setting);								// run it
-
-//$test = \mvc\model\database::getInstance();
-//$test2 = new \mvc\model\database();
-//var_dump($setting); // pff and gone
+echo "test";
 ?>
