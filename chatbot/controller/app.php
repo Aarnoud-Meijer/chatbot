@@ -8,6 +8,7 @@ $configs =  [
 	'settings' => ['displayErrorDetails' => true],
 ];
 
+$database = new \chatbot\model\database();
 
 $app = new \Slim\App($configs);
 

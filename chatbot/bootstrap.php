@@ -16,13 +16,14 @@ if(!defined('WEBROOT_PATH')) die();
 error_reporting(E_ALL);
 
 require '../vendor/autoload.php';
-
 require 'model/FlexSampleRestaurant.php';
 
 $chatbot = new model\FlexSampleRestaurant(); // ?
 
+require 'model/database.php';
 require 'config.php';
 require 'controller/app.php';
+
 
 /*
 // config

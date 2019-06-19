@@ -9,8 +9,6 @@ if(!defined('APPLICATION_PATH')) die();
 // Database wrapper (PDO)
 class database extends \PDO{
 
-	private static $instance;// = null;
-
 	// private function __construct(array &$setting=NULL){ // breaks with extends \PDO<- check
 	public function __construct(array &$setting=NULL){
 
@@ -22,19 +20,6 @@ class database extends \PDO{
             trigger_error($e->getMessage());
             return false;
         }
-	}
-
-	private function connect(){
-
-	}
-
-	public static function getInstance(){
-		if(self::$instance!==null){
-			die("nope!"); // report!
-		}elseif(!isset(self::$instance)){
-			self::$instance = new database();
-		}
-		return self::$instance;
 	}
 
 }
