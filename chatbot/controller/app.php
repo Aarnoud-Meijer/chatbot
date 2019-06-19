@@ -2,11 +2,12 @@
 
 namespace chatbot\controller;
 
-
+/*
 // initiate app
 $configs =  [
 	'settings' => ['displayErrorDetails' => true],
 ];
+*/
 
 $app = new \Slim\App($configs);
 

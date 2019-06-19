@@ -21,6 +21,7 @@ require 'model/FlexSampleRestaurant.php';
 
 $chatbot = new model\FlexSampleRestaurant(); // ?
 
+require 'config.php';
 require 'controller/app.php';
 
 /*
