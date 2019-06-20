@@ -11,6 +11,11 @@ CREATE TABLE database_name.table_name(
 );
 */
 
+// $id in session!
+
+$database->sql($sql['install']);
+echo $database->sql($sql['get_name']);
+
 $sql = array( // use phonenumber as unique $id
    'install' => "create table user if not excist(
       id int primary key auto increment,
@@ -19,11 +24,16 @@ $sql = array( // use phonenumber as unique $id
       age int,
       city varchar(255),
       gender varchar(255)", /// or bolean
-   'set_id' => "insert into user (phonenumber) values ($id)",
-   'set_name' => "insert into user (name) values ($name)",
-   'get_name'=> "select name from user where phonnumber like ($id)",
-   'get_age' => "select age from user where phonnumber like ($id)",
-   'get_city' => "select city from user where phonnumber like ($id)",
+   // setters
+   'set_id'    => "insert into user (phonenumber) values ($id)",
+   'set_name'  => "insert into user (name) values ($name)",
+   'set_age'   => "insert into user (age) values ($age)",
+   'set_city'  => "insert into user (city) values ($city)",
+   'set_gender' => "insert into user (gender) values ($gender)",
+   // getters
+   'get_name'  => "select name from user where phonnumber like ($id)",
+   'get_age'   => "select age from user where phonnumber like ($id)",
+   'get_city'  => "select city from user where phonnumber like ($id)",
 
 
    
